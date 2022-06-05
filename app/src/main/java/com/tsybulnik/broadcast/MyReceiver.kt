@@ -16,8 +16,9 @@ class MyReceiver : BroadcastReceiver() {
                 Toast.makeText(p0,"ACTION_AIRPLANE_MODE_CHANGED",Toast.LENGTH_LONG).show()
             }
             Intent.ACTION_BATTERY_LOW->{
+                val turnOn = p1.getBooleanExtra("state",false)
                 Log.d("MyReceiver","ACTION_AIRPLANE_MODE_CHANGED")
-                Toast.makeText(p0,"ACTION_BATTERY_LOW",Toast.LENGTH_LONG).show()
+                Toast.makeText(p0,"ACTION_BATTERY_LOW Turn On $turnOn",Toast.LENGTH_LONG).show()
             }
 
         }

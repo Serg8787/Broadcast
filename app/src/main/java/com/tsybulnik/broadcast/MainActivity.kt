@@ -12,9 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intentFilter = IntentFilter(Intent.ACTION_BATTERY_LOW)
-
-        registerReceiver(receiver,intentFilter)
+        val intentFilter = IntentFilter().apply {
+            addAction(Intent.ACTION_BATTERY_LOW)
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        }
     }
 
     override fun onDestroy() {
