@@ -10,6 +10,10 @@ class MyReceiver : BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
 
         when(p1?.action){
+            "loaded" -> {
+                val percent = p1.getIntExtra("percent",0)
+                Toast.makeText(p0,"loaded $percent",Toast.LENGTH_LONG).show()
+            }
             Intent.ACTION_AIRPLANE_MODE_CHANGED ->{
                 Log.d("MyReceiver","ACTION_AIRPLANE_MODE_CHANGED")
                 Toast.makeText(p0,"ACTION_AIRPLANE_MODE_CHANGED",Toast.LENGTH_LONG).show()
